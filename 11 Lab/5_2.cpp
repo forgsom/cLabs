@@ -4,6 +4,7 @@
 
 // PROGRAMMA BULIT BUKVU "L"
 // NENAVIJU C++, BIL EGO V NOGU!
+//NENAVIGU VISUAL STUDIO, POMOIKA
 
 
 #include <list>
@@ -12,14 +13,14 @@
 #include <iterator>
 using namespace std;
 
-void createList(list<int>& L, int n)
+void createList(list<int>& L, list<int>&L1, int n)
 {
 	list <int>::iterator iter = L.begin();
 	for (int i = 0; i < n; i++)
 	{
-		if (*iter < 0)
+		if (*iter >= 0)
 		{
-			L.remove(*iter);
+			L1.push_back(*iter);
 		}
 		++iter;
 	}
@@ -30,6 +31,7 @@ int main()
 	srand(time(NULL));
 	int n, r;
 	list <int> L;
+	list <int> L1;
 	cout << "Enter list size " << endl;
 	cin >> n;
 	for (int i = 0; i < n; i++)
@@ -39,7 +41,7 @@ int main()
 	}
 	cout << "\n\n\n";
 	copy(L.begin(), L.end(), ostream_iterator<int>(cout, " "));
-	createList(L, n);
+	createList(L, L1, n);
 	cout << "\n\n\n";
-	copy(L.begin(), L.end(), ostream_iterator<int>(cout, " "));
+	copy(L1.begin(), L1.end(), ostream_iterator<int>(cout, " "));
 }
