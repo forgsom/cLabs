@@ -67,7 +67,3 @@ void ex_second()
     file2.close();
     delete[] arr;
 }
-
-void sort_struct()
-{
-}
