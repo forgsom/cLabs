@@ -15,41 +15,8 @@ struct Spisok
 	int group;
 };
 
-void Sort(Spisok* child, const int n)
-{
-	string second_name, first_name;
-	int flag, height, weight, group;
-	for (int i = 0; i < n - 1; i++)
-	{
-		for (int j = i + 1; j < n; j++)
-		{
-			if (child[i].height < child[j].height)
-			{
-				height = child[i].height;
-				child[i].height = child[j].height;
-				child[j].height = height;
 
-				weight = child[i].weight;
-				child[i].weight = child[j].weight;
-				child[j].weight = weight;
-
-				second_name = child[i].second_name;
-				child[i].second_name = child[j].second_name;
-				child[j].second_name = second_name;
-
-				first_name = child[i].first_name;
-				child[i].first_name = child[j].first_name;
-				child[j].first_name = first_name;
-
-				group = child[i].group;
-				child[i].group = child[j].group;
-				child[j].group = group;
-			}
-		}
-	}
-};
-
-int main()
+void ex_third()
 {
 	system("cls");
 	int i = 0, lenght = 0, a, flag;
@@ -61,6 +28,7 @@ int main()
 	cin >> lenght;
 	tmp = lenght;
 	Spisok* child = new Spisok[lenght];
+	Spisok tmp_sort;
 
 	for (i; i < lenght; i++)
 	{
@@ -87,10 +55,25 @@ int main()
 	heightAverage = heightAverage / tmp;
 
 
-	Sort(child, lenght);
-	cout << "Weight Average: " << weightAverage << endl;
+	//sort
+	for (int i = 0; i < lenght - 1; i++)
+	{
+		for (int j = 0; j < lenght - i - 1; j++)
+		{
+			if (child[j].height > child[j + 1].height)
+			{
+				tmp_sort = child[j];
+				child[j] = child[j + 1];
+				child[j + 1] = tmp_sort;
+			}
+		}
+	}
+	cout << "\nWeight Average: " << weightAverage << endl;
 	cout << "Height Average: " << heightAverage << endl;
+	system("pause");
 
+
+	//menu
 	do
 	{
 		system("cls");
