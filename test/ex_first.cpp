@@ -54,6 +54,19 @@ void ex_first()
 		}
 	}
 
+	/*for (int i = 0; i < n; i++)
+	{
+		if ((arr[i] > firstBorder) && (arr[i] < secondBorder) && (arr[i] < 0) && (arr[i] % 5 == 0))
+		{
+			continue;
+		}
+		else
+		{
+			result[index] = arr[i];
+			index++;
+		}
+	}*/
+
 
 	//sort
 	for (int i = 0; i < index - 1; i++)
